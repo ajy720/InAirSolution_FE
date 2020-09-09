@@ -1,54 +1,72 @@
 * {
-	margin: 0;
-	padding: 0;
-	box-sizing: border-box;
-	color: #222;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #222;
 }
 
 .container {
-	width: 90%;
-	margin: 0 auto;
+  width: 90%;
+  margin: 0 auto;
 }
-
-
 
 header {
-	width: 100%;
-	background-color: #0583F2;
+  width: 100%;
+  background-color: #0583f2;
 }
 
-header h2{
-    color: white;
-	height: 1.5em;
-    line-height: 1.5em;
+header h2 {
+  color: white;
+  height: 1.5em;
+  line-height: 1.5em;
 }
 
-#weather-tab .content{
-    display: flex;
-	justify-content: space-around;
-	align-items: center;
+#weather-tab .content {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 }
 
-#weather-tab .weatherContainer{
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    font-size: 1.5em;
+#weather-tab .weatherContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 1.5em;
 }
 
-#control-tab .content{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
+#air-tab .content {
+  font-size: 1.2rem;
+  line-height: 2rem;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#air-tab .content > * {
+  width: 45%;
+}
+
+#air-tab .airLegend {
+	text-align: right;
+}
+
+#air-tab .airValue {
+	font-size: 1.4rem;
+}
+
+#control-tab .content {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
 }
 
 .section-title {
-	font-size: 1.3em;
-	display: inline-block;
-	border-bottom: 1px #222 solid;
-	padding: 0 0.1em 0.2em;
+  font-size: 1.3em;
+  display: inline-block;
+  border-bottom: 1px #222 solid;
+  padding: 0 0.1em 0.2em;
 }
 
 body > * {
-	margin-bottom: 1em;
+  margin-bottom: 1em;
 }

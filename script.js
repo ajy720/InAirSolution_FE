@@ -1,42 +1,89 @@
-$(document).ready(function(){
+class Weather {
+    main = null
+    pm10 = null
+    pm25 = null
+    inAir = null
+    temp_max = null
+    temp_min = null
+
+    setWeather() {
+        $("#weather").text(this.main)
+        $("#temperature").text(`${this.temp_max}º / ${this.temp_min}º`)
+    }
+
+    setAir() {
+        this.setPm(this.pm10, $("#pm10"))
+        this.setPm(this.pm25, $("#pm25"))
+        this.setPm(this.inAir, $("#inAir"))
+    }
+
+    setPm(grade, el) {
+        switch (grade) {
+            case 1:
+                el.text("좋음")
+                el.addClass("text-primary")
+                break
+            case 2:
+                el.text("보통")
+                el.addClass("text-info")
+                break
+            case 3:
+                el.text("나쁨")
+                el.addClass("text-warning")
+                break
+            case 4:
+                el.text("매우 나쁨")
+                el.addClass("text-danger")
+                break
+        }
+    }
+}
+
+$(document).ready(function () {
+    state = new Weather()
+
+
     getWeather();
-    setInterval(()=>{
+    setInterval(() => {
         getWeather();
 
     }, 5000)
 })
 
-function getWeather(city="종로구"){
+function getWeather(city = "종로구") {
     lat = 37.275829
     lon = 127.049812
-    key="dcdea72917356232c43b40113bdd3a74"
-    key2="YIekZJzgybQx43oc%2BFxCBzfdMAe%2Bd0237vkKrvwyKrbP9WKrXKex5wPySUvFOV9eB5H6HDgAViF7NsEfgU1kyQ%3D%3D"
+    key = "dcdea72917356232c43b40113bdd3a74"
 
     url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}`
-    url2 = `http://openapi.airkorea.or.kr/openapi/services/rest/ArpltnInforInqireSvc/getMsrstnAcctoRltmMesureDnsty?stationName=${city}&dataTerm=month&ServiceKey=${key2}&ver=1.3&_returnType=json`
+    url2 = `http://ec2-13-125-251-11.ap-northeast-2.compute.amazonaws.com:8000/latest`
 
 
     $.ajax({
         url: url,
         method: "get",
-        success:({weather, main})=>{
-            console.log(main)
-            weather = weather[0].main
-            maxTemp = main.temp_max
-            minTemp = main.temp_min
+        success: ({ weather, main }) => {
+            // console.log(main)
+            state.main = weather[0].main
+            state.temp_max = main.temp_max
+            state.temp_min = main.temp_min
+
+            state.setWeather()
         }
     })
-
+    
     $.ajax({
         url: url2,
         method: "get",
-        dataType: 'jsonp',
-        success:(data)=>{
-            console.log(data[1])
+        success: (data) => {
+            // console.log(data)
+            state.pm10 = data.pm10
+            state.pm25 = data.pm25
+            state.inAir = data.quality
+            
+            state.setAir()
         }
     })
 
-    
-
-
+    console.log(state)
 }
