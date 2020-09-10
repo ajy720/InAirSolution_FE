@@ -42,6 +42,14 @@ class Weather {
 $(document).ready(function () {
     state = new Weather()
 
+    $("#open").click(()=>{
+        postCmd(true);
+    })
+
+    $("#close").click(()=>{
+        postCmd(false);
+    })
+
 
     getWeather();
     setInterval(() => {
@@ -65,8 +73,8 @@ function getWeather(city = "종로구") {
         success: ({ weather, main }) => {
             // console.log(main)
             state.main = weather[0].main
-            state.temp_max = main.temp_max
-            state.temp_min = main.temp_min
+            state.temp_max = parseInt(main.temp_max - 273)
+            state.temp_min = parseInt(main.temp_min - 273)
 
             state.setWeather()
         }
@@ -86,4 +94,17 @@ function getWeather(city = "종로구") {
     })
 
     console.log(state)
+}
+
+function postCmd(state){
+    url = `http://ec2-13-125-251-11.ap-northeast-2.compute.amazonaws.com:8000/`
+    
+    $.ajax({
+        url: url + ((state) ? "open" : "close"),
+        method: "post",
+
+    })
+    
+    console.log(state)
+    
 }
