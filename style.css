@@ -31,7 +31,7 @@ header h2 {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  font-size: 1.5em;
+  font-size: 1.4em;
 }
 
 #weather-tab img{
@@ -51,11 +51,19 @@ header h2 {
 }
 
 #air-tab .airLegend {
-	text-align: right;
+  text-align: right;
 }
 
 #air-tab .airValue {
-	font-size: 1.4rem;
+  font-size: 1.4rem;
+}
+
+#control-tab .imgContainer{
+  text-align: center;
+}
+
+#control-tab img{
+  width: 6rem;
 }
 
 #control-tab .content {
@@ -69,8 +77,13 @@ header h2 {
   display: inline-block;
   border-bottom: 1px #222 solid;
   padding: 0 0.1em 0.2em;
+  margin-bottom: 1rem;
 }
 
 body > * {
   margin-bottom: 1em;
+}
+
+.popup{
+  
 }

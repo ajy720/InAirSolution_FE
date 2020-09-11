@@ -14,7 +14,6 @@ class Weather {
 
     setMain() {
         this.main = "맑음"
-        console.log(this.id)
         switch (parseInt(this.id / 100)) {
             case 2:
             case 3:
@@ -76,14 +75,52 @@ class Weather {
     }
 }
 
+class Window{
+    is_venting = null
+    need_venting = null;
+    last_select = true;
+
+    setWindow(){
+        console.log(this.need_venting)
+
+        if(this.is_venting){
+            $("#windowImg").attr("src", "./img/windows_open.png")
+        }else{
+            $("#windowImg").attr("src", "./img/windows_close.png")
+        }
+
+        if(this.need_venting){
+            if(this.last_select){
+                this.openModal()
+                this.last_select = false
+            }
+        }else{
+            this.last_select = true            
+        }
+    }
+
+    openModal(){
+        $('#modal').modal()
+    }
+}
+
 $(document).ready(function () {
     state = new Weather()
+    vent = new Window()
 
     $("#open").click(() => {
         postCmd(true);
     })
 
     $("#close").click(() => {
+        postCmd(false);
+    })
+
+    $("#popupOpen").click(() => {
+        postCmd(true);
+    })
+
+    $("#popupClose").click(() => {
         postCmd(false);
     })
 
@@ -123,16 +160,17 @@ function getWeather(city = "종로구") {
         url: url2,
         method: "get",
         success: (data) => {
-            // console.log(data)
+            console.log(data)
             state.pm10 = data.pm10
             state.pm25 = data.pm25
             state.inAir = data.quality
+            vent.is_venting = data.is_venting
+            vent.need_venting = data.need_venting
 
             state.setAir()
+            vent.setWindow()
         }
     })
-
-    console.log(state)
 }
 
 function postCmd(state) {
@@ -143,7 +181,5 @@ function postCmd(state) {
         method: "post",
 
     })
-
-    console.log(state)
 
 }

@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="bootstrap.css" />
-    <link rel="stylesheet" href="style.css" />
-    <script src="jquery-3.5.1.min.js"></script>
-    <script src="bootstrap.js"></script>
-    <script src="script.js"></script>
-  </head>
 
-  <body>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="bootstrap.css" />
+  <link rel="stylesheet" href="style.css" />
+  <script src="jquery-3.5.1.min.js"></script>
+  <script src="bootstrap.js"></script>
+  <script src="script.js"></script>
+</head>
+
+<body>
+  <div class="wrap">
     <header>
       <div class="container">
         <h2>InAirSolution</h2>
@@ -20,14 +22,13 @@
     <section id="weather-tab">
       <div class="container">
         <h3 class="section-title">날씨</h3>
-        <div class="py-3 content">
+        <div class="content">
           <div class="imgContainer">
             <img src="./img/sunny.png" alt="날씨" id="weatherIcon" />
           </div>
-          <div class="weatherContainer">
+          <div class="weatherContainer pl-2">
             <div>날씨 : <span id="weather">맑음</span></div>
             <div>온도 : <span id="temperature">29º / 22º</span></div>
-            <!-- <div>미세먼지 : <span id="dust">좋음</span></div> -->
           </div>
         </div>
       </div>
@@ -35,7 +36,7 @@
     <section id="air-tab">
       <div class="container">
         <h3 class="section-title">공기 상태</h3>
-        <div class="py-3 px-2 content">
+        <div class="px-1 content">
           <div class="airLegend">
             <div>미세먼지 :</div>
             <div>초미세먼지 :</div>
@@ -52,6 +53,9 @@
     <section id="control-tab">
       <div class="container">
         <h3 class="section-title">창문 제어</h3>
+        <div class="imgContainer">
+          <img src="./img/windows_close.png" alt="창문 상태" id="windowImg">
+        </div>
         <div class="p-3 content">
           <button id="open" class="btn btn-primary">창문 열기</button>
           <button id="close" class="btn btn-danger">창문 닫기</button>
@@ -76,5 +80,28 @@
     <footer>
       <div class="container"></div>
     </footer>
-  </body>
+  </div>
+  
+  <div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title font-weight-bold" id="exampleModalLabel">환기 알림</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          실내 환기가 필요합니다. <br>
+          환기하시겠습니까?
+        </div>
+        <div class="modal-footer">
+          <button id="popupOpen" type="button" class="btn btn-primary" data-dismiss="modal">예</button>
+          <button id="popupClose"type="button" class="btn btn-danger" data-dismiss="modal">아니요</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
 </html>
