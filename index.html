@@ -66,13 +66,38 @@
       <div class="container">
         <h3 class="section-title">기록</h3>
         <div class="content">
-          <ul class="list-group list-group-flush" id="list">
-            <li class="list-group-item">Cras justo odio</li>
-            <li class="list-group-item">Dapibus ac facilisis in</li>
-            <li class="list-group-item">Morbi leo risus</li>
-            <li class="list-group-item">Porta ac consectetur ac</li>
-            <li class="list-group-item">Vestibulum at eros</li>
-          </ul>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">날짜</th>
+                <th scope="col">실내 공기질</th>
+                <th scope="col">환기 여부</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>수요일</td>
+                <td class="text-primary">Good</td>
+                <td>X</td>
+              </tr>
+              <tr>
+                <td>화요일</td>
+                <td class="text-info">Normal</td>
+                <td>O</td>
+              </tr>
+              <tr>
+                <td>월요일</td>
+                <td class="text-warning">Bad</td>
+                <td>O</td>
+              </tr>
+              <tr>
+                <td>일요일</td>
+                <td class="text-danger">Worst</td>
+                <td>O</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>

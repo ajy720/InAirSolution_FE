@@ -5,6 +5,10 @@
   color: #222;
 }
 
+section{
+  padding-top: 1rem;
+}
+
 .container {
   width: 90%;
   margin: 0 auto;

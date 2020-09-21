@@ -89,7 +89,7 @@ class Window{
             $("#windowImg").attr("src", "./img/windows_close.png")
         }
 
-        if(this.need_venting){
+        if(this.need_venting && !this.is_venting){
             if(this.last_select){
                 this.openModal()
                 this.last_select = false
@@ -126,9 +126,10 @@ $(document).ready(function () {
 
 
     getWeather();
+    vent.setWindow()
     setInterval(() => {
         getWeather();
-
+        vent.setWindow()
     }, 3000)
 })
 
