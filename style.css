@@ -62,15 +62,15 @@ header h2 {
   font-size: 1.4rem;
 }
 
-#control-tab .imgContainer{
+.control-tab .imgContainer{
   text-align: center;
 }
 
-#control-tab img{
+.control-tab img{
   width: 6rem;
 }
 
-#control-tab .content {
+.control-tab .content {
   width: 100%;
   display: flex;
   justify-content: space-around;
