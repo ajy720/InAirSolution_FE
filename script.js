@@ -73,7 +73,7 @@ class Weather {
   }
 }
 
-class Window {
+class Vent {
   is_venting = null;
   need_venting = null;
   last_select = true;
@@ -132,7 +132,7 @@ class Led {
 
 $(document).ready(function () {
   state = new Weather();
-  vent = new Window();
+  vent = new Vent();
   lamp = new Led();
 
   $("#open").click(() => {
@@ -200,7 +200,7 @@ function getInfo(city = "종로구") {
       state.pm10 = data.pm10;
       state.pm25 = data.pm25;
       state.inAir = data.quality;
-      vent.is_state = data.is_venting;
+      vent.is_venting = data.is_venting;
       vent.need_venting = data.need_venting;
 
       state.setAir();
