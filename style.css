@@ -5,13 +5,8 @@
   color: #222;
 }
 
-section{
+section {
   padding-top: 1rem;
-}
-
-.container {
-  width: 90%;
-  margin: 0 auto;
 }
 
 header {
@@ -38,7 +33,7 @@ header h2 {
   font-size: 1.4em;
 }
 
-#weather-tab img{
+#weather-tab img {
   width: 6rem;
 }
 
@@ -62,11 +57,11 @@ header h2 {
   font-size: 1.4rem;
 }
 
-.control-tab .imgContainer{
+.control-tab .imgContainer {
   text-align: center;
 }
 
-.control-tab img{
+.control-tab img {
   width: 6rem;
 }
 
@@ -88,6 +83,5 @@ body > * {
   margin-bottom: 1em;
 }
 
-.popup{
-  
+.popup {
 }
