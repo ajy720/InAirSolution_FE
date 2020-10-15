@@ -101,7 +101,7 @@ class Vent {
   }
 
   windowCmd(state) {
-    url = `http://ec2-54-180-150-255.ap-northeast-2.compute.amazonaws.com:8000/`;
+    url = `http://3.35.159.74:8000/`;
 
     $.ajax({
       url: url + (state ? "open" : "close"),
@@ -122,7 +122,7 @@ class Led {
   } // 현재 상태에 따른 LED 사진 변경
 
   ledCmd(state) {
-    url = `http://ec2-54-180-150-255.ap-northeast-2.compute.amazonaws.com:8000/`;
+    url = `http://3.35.159.74:8000/`;
 
     $.ajax({
       url: url + (state ? "on" : "off"),
@@ -176,7 +176,7 @@ function getInfo() {
   key = "dcdea72917356232c43b40113bdd3a74";
 
   url = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${key}`;
-  url2 = `http://ec2-54-180-150-255.ap-northeast-2.compute.amazonaws.com:8000/`;
+  url2 = `http://3.35.159.74:8000/`;
 
   $.ajax({
     url: url,
